@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Table</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-size: 25px;
+      color: #fff;
+    }
+    body {
+      text-align: center;
+      margin-top: 100px;
+      background-color: #302b2b;
+    }
+
+    h1 {
+      color: #fff;
+      letter-spacing: 0.1rem;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 1rem;
+      width: 300px;
+      background-color: #6d6969;
+      border: none;
+      border-radius: 15px;
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    ul > li {
+      letter-spacing: 0.1rem;
+    }
+  </style>
+  <body>
+    <h1>Math Table For Jiyan</h1>
+    <input
+      type="text"
+      placeholder="Enter Number"
+      id="input"
+      oninput="handleChange(this.value)"
+    />
+
+    <ul id="table">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </body>
+  <script>
+    const input = document.getElementById("input");
+    const table = document.querySelectorAll("#table li");
+
+    for (let i = 0; i < 10; i++) {
+      table[i].style.opacity = 0;
+    }
+
+    function handleChange(e) {
+      if (e === "") e = 1;
+      for (let i = 1; i <= 10; i++) {
+        table[i - 1].style.opacity = 1;
+        table[i - 1].innerHTML = `${e} X ${i} = ${e * i}`;
+      }
+    }
+  </script>
+</html>
